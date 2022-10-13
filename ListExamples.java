@@ -12,10 +12,22 @@ class ListExamples {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(s);
       }
     }
     return result;
+    /*
+     * error: keeps adding good strings to the 0 index, 
+              i.e. whole answer list is in reversed order
+     * original: 
+      List<String> result = new ArrayList<>();
+        for(String s: list) {
+          if(sc.checkString(s)) {
+            result.add(0, s);
+        }
+      }
+      return result;
+     */
   }
 
 
@@ -40,8 +52,17 @@ class ListExamples {
     }
     while(index2 < list2.size()) {
       result.add(list2.get(index2));
-      index1 += 1;
+      index2 += 1;
     }
+    /*
+     * error: index1 should be index2 
+              otherwise it infinite loops
+     * original:
+      while(index2 < list2.size()) {
+        result.add(list2.get(index2));
+        index1 += 1;
+      }
+     */
     return result;
   }
 
